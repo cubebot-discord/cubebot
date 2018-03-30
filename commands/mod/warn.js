@@ -7,7 +7,8 @@ module.exports = class WarnCommand extends Command {
       group: 'mod',
       memberName: 'warn',
       description: 'Warns a user',
-      userPermissions: ['MANAGE_SERVER'],
+      userPermissions: ['MANAGE_GUILD'],
+      guildOnly: true,
       args: [
         {
           key: 'user',
