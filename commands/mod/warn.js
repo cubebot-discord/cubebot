@@ -27,7 +27,7 @@ module.exports = class WarnCommand extends Command {
       ],
       throttling: {
         usages: 10,
-        time: 15
+        duration: 15
       }
     })
   }
