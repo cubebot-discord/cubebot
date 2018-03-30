@@ -6,7 +6,8 @@ const config = require('./config')
 const client = new Commando.Client({
   owner: config.owner,
   commandPrefix: config.prefix || '=>',
-  invite: config.invite
+  invite: config.invite,
+  unkownCommandResponse: false
 })
 
 client
