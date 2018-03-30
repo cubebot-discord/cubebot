@@ -1,0 +1,35 @@
+{
+  "name": "cubebot",
+  "version": "0.1.0",
+  "description": "A general-purpose discord utility bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cubebot-discord/cubebot.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cubebot-discord/cubebot/issues"
+  },
+  "homepage": "https://github.com/cubebot-discord/cubebot#readme",
+  "dependencies": {
+    "discord.js": "^11.3.2",
+    "discord.js-commando": "^0.9.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "sqlite": "^2.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^3.0.3"
+  }
+}
