@@ -18,8 +18,9 @@ client
   .catch(console.error)
 
 client.registry
-  .registerGroups([])
+  .registerGroups([['mod', 'Moderation'], ['random', 'Random']])
   .registerDefaults()
+  .registerTypesIn(path.join(__dirname, 'types'))
   .registerCommandsIn(path.join(__dirname, 'commands'))
 
 client.on('ready', () => {
