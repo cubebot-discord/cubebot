@@ -7,7 +7,7 @@ const client = new Commando.Client({
   owner: config.owner,
   commandPrefix: config.prefix || '=>',
   invite: config.invite,
-  unkownCommandResponse: false
+  unknownCommandResponse: false
 })
 
 client
