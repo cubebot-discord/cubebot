@@ -24,7 +24,7 @@ module.exports = class WarnCommand extends Command {
       ],
       examples: [
         'warn @ev3commander',
-        'warn @MegaNoob123 "no bot commands in general"'
+        'warn @MegaNoob123 no bot commands in general'
       ],
       throttling: {
         usages: 10,
