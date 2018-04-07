@@ -63,3 +63,4 @@ typings/
 # Bot data
 config.js
 settings.sqlite3
+data/

@@ -19,7 +19,7 @@ client
   .catch(console.error)
 
 client.registry
-  .registerGroups([['mod', 'Moderation'], ['random', 'Random']])
+  .registerGroups([['mod', 'Moderation'], ['random', 'Random'], ['accept', 'Command to accept the rules']])
   .registerDefaults()
   .registerTypesIn(path.join(__dirname, 'types'))
   .registerCommandsIn(path.join(__dirname, 'commands'))
