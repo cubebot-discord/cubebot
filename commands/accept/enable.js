@@ -2,7 +2,7 @@ const { Command } = require('discord.js-commando')
 const fs = require('fs')
 const path = require('path')
 
-module.exports = class WarnCommand extends Command {
+module.exports = class AcceptEnableCommand extends Command {
   constructor (client) {
     super(client, {
       name: 'accept:enable',
