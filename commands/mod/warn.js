@@ -12,8 +12,8 @@ module.exports = class WarnCommand extends Command {
       args: [
         {
           key: 'user',
-          type: 'user',
-          prompt: 'What user would you warn?'
+          type: 'member',
+          prompt: 'What user would you like to warn?'
         },
         {
           key: 'reason',
@@ -39,6 +39,6 @@ module.exports = class WarnCommand extends Command {
         reason !== 1 ? `with reason: ${reason}` : '[no reason provided]'
       }`
     )
-    message.channel.send(`***✅ ${user.tag} has been warned!***`)
+    message.channel.send(`***✅ ${user.user.tag} has been warned!***`)
   }
 }
