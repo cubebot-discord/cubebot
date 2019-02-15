@@ -30,7 +30,7 @@ module.exports = class VoiceKickCommand extends Command {
   }
 
   async run (message, { user }) {
-    if (!user.voiceChannel) {
+    if (!user.voice.channel) {
       return message.channel.send(
         "***<:fail:431429659499036682> That user isn't in a voice channel***"
       )
