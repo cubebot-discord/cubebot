@@ -1,3 +1,6 @@
 module.exports = {
-    "extends": "standard"
-};
+  extends: 'standard',
+  rules: {
+    'prefer-template': 2
+  }
+}

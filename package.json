@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/cubebot-discord/cubebot#readme",
   "dependencies": {
+    "better-sqlite3": "^5.4.0",
     "discord.js": "github:discordjs/discord.js",
     "discord.js-commando": "github:discordjs/Commando",
     "eslint-config-standard": "^11.0.0",
@@ -24,12 +25,13 @@
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-standard": "^3.0.1",
-    "sqlite": "^2.9.1"
+    "sqlite": "^3.0.1"
   },
   "devDependencies": {
-    "eslint": "^4.19.1"
+    "@types/better-sqlite3": "^5.2.3",
+    "eslint": "^4.19.1",
+    "prettier": "^1.17.0",
+    "prettier-eslint": "^8.8.2"
   },
-  "optionalDependencies": {
-    "bufferutil": "^3.0.3"
-  }
+  "optionalDependencies": {}
 }

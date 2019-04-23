@@ -2,6 +2,8 @@ const Commando = require('discord.js-commando')
 const sqlite = require('sqlite')
 const path = require('path')
 const config = require('./config')
+const Data = require('./util/data')
+const accept = require('./util/accept')
 
 const client = new Commando.Client({
   owner: config.owner,
@@ -9,6 +11,11 @@ const client = new Commando.Client({
   invite: config.invite,
   unknownCommandResponse: false
 })
+
+client.data = {
+  accept: new Data.AcceptDatabase()
+}
+accept.init(client)
 
 client
   .setProvider(
@@ -19,7 +26,11 @@ client
   .catch(console.error)
 
 client.registry
-  .registerGroups([['mod', 'Moderation'], ['random', 'Random'], ['accept', 'Command to accept the rules']])
+  .registerGroups([
+    ['mod', 'Moderation'],
+    ['random', 'Random'],
+    ['accept', 'Command to accept the rules']
+  ])
   .registerDefaults()
   .registerTypesIn(path.join(__dirname, 'types'))
   .registerCommandsIn(path.join(__dirname, 'commands'))

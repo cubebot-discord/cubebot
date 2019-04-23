@@ -1,6 +1,4 @@
 const { Command } = require('discord.js-commando')
-const fs = require('fs')
-const path = require('path')
 
 module.exports = class AcceptEnableCommand extends Command {
   constructor (client) {
@@ -9,35 +7,32 @@ module.exports = class AcceptEnableCommand extends Command {
       group: 'accept',
       memberName: 'enable',
       description: 'Enables the command to accept rules',
-      clientPermissions: ['USE_EXTERNAL_EMOJIS'],
-      guildOnly: true
+      clientPermissions: ['USE_EXTERNAL_EMOJIS', 'MANAGE_ROLES'],
+      userPermissions: ['MANAGE_ROLES'],
+      guildOnly: true,
+      throttling: {
+        usages: 3,
+        duration: 15
+      }
     })
   }
 
   run (message) {
-    let data = JSON.parse(
-      fs.readFileSync(path.join(__dirname, '..', '..', 'data', 'accept.json'), {
-        encoding: 'utf-8'
-      })
-    )
-    if (!data[message.guild.id]) {
-      data[message.guild.id] = {
-        enabled: false,
-        channel: null,
-        role: null
-      }
+    const data = this.client.data.accept
+
+    if (!data.has(message.guild.id)) {
+      data.create(message.guild.id)
     }
-    if (!data[message.guild.id].channel) {
+    if (!data.get(message.guild.id).channel) {
       message.channel.send(
-        '***<:fail:431429659499036682> You must set a channel first, using the `accept:set-channel` command***'
+        '***<:cubebotFail:431429659499036682> You must set a channel first, using the `accept:set-channel` command***'
       )
-    } else if (!data[message.guild.id].role) {
+    } else if (!data.get(message.guild.id).role) {
       message.channel.send(
-        '***<:fail:431429659499036682> You must set a role first, using the `accept:set-role` command***'
+        '***<:cubebotFail:431429659499036682> You must set a role first, using the `accept:set-role` command***'
       )
     } else {
-      data[message.guild.id].enabled = true
-      fs.writeFile(path.join(__dirname, '..', '..', 'data', 'accept.json'), JSON.stringify(data))
+      data.set(message.guild.id, 'enabled', true)
       message.channel.send('***✅ Enabled accept***')
     }
   }
