@@ -66,10 +66,11 @@ exports.AcceptDatabase = class AcceptDatabase {
       return null
     }
 
-    const data = this.statements.get.get(id)
+    const rawData = this.statements.get.get(id)
+    const data = Object.assign(rawData, { enabled: Boolean(rawData.enabled) })
     this.cache.set(id, data)
 
-    return Object.assign(data, { enabled: Boolean(data.enabled) })
+    return data
   }
 
   set (id, key, value) {
